@@ -13,17 +13,35 @@ export async function POST(request: NextRequest) {
         const ai = ctx.env.AI
         const gateway_id = ctx.env.CLOUDFLARE_GATEWAY_ID
         
-        let { userInput } = await request.json() as { userInput: string }
+        let { userInput, format, tone } = await request.json() as { 
+            userInput: string;
+            format: 'paragraph' | 'bullets' | 'numbered' | 'outline';
+            tone: 'casual' | 'professional' | 'academic';
+        }
+
+        const formatInstructions = {
+            paragraph: "Format the response as a continuous flowing paragraph.",
+            bullets: "Format the response as bullet points, with each key point on a new line starting with '• '.",
+            numbered: "Format the response as a numbered list, with each point numbered sequentially.",
+            outline: "Format the response as an outline with main points and sub-points using appropriate indentation."
+        }
+
+        const toneInstructions = {
+            casual: "Use a conversational and friendly tone, as if explaining to a friend.",
+            professional: "Use a clear, concise, and business-appropriate tone.",
+            academic: "Use a formal, scholarly tone with precise language."
+        }
       
-        const systemPrompt = `You are a text summarization assistant. Your task is to create clear, concise summaries while maintaining the key points and meaning of the original text. Follow these guidelines:
+        const systemPrompt = `You are a text summarization assistant. Your task is to create clear, effective summaries while maintaining the key points and meaning of the original text. Follow these guidelines:
 
 - Maintain the main ideas and crucial details
 - Use clear, straightforward language
 - Keep the summary length as requested by the user
 - Ensure the summary is coherent and flows well
-- Preserve the tone of the original text where appropriate
+- ${formatInstructions[format]}
+- ${toneInstructions[tone]}
 
-Format your response as a simple paragraph without any markdown or special formatting.`
+The summary should strictly follow the requested format and tone while preserving the essential information.`
 
         const messages = [
             { role: "system", content: systemPrompt },
