@@ -51,7 +51,7 @@ The summary should strictly follow the requested format and tone while preservin
         const response = await ai.run("@cf/meta/llama-3.1-70b-instruct",
             { 
                 messages, 
-                temperature: 0.7,
+                temperature: 1,
                 max_tokens: 2048,
             }, 
             {
