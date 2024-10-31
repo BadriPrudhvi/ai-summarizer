@@ -43,6 +43,11 @@ const toneOptions: SummaryOption[] = [
   { value: "academic", label: "Academic", icon: GraduationCap, description: "Formal" }
 ]
 
+const calculateTokens = (text: string): number => {
+  const words = text.split(/\s+/).filter(Boolean).length;
+  return Math.round(words / 0.75);
+};
+
 export function Summarizer() {
   const [text, setText] = useState("")
   const [summaryLength, setSummaryLength] = useState(25)
@@ -255,8 +260,9 @@ export function Summarizer() {
                       className="min-h-[300px] border-0 focus-visible:ring-0 transition-colors"
                       placeholder="Enter or paste your text here..."
                     />
-                    <div className="text-sm text-muted-foreground">
-                      Text length: {text.split(/\s+/).filter(Boolean).length} words
+                    <div className="flex justify-between text-sm text-muted-foreground">
+                      <span className="text-xs">Words: {text.split(/\s+/).filter(Boolean).length}</span>
+                      <span className="text-xs text-orange-500">~{calculateTokens(text)} tokens</span>
                     </div>
                   </div>
                 </Card>
@@ -292,8 +298,9 @@ export function Summarizer() {
                         readOnly
                       />
                     )}
-                    <div className="text-sm text-muted-foreground">
-                      Summary: {summary.split(/\s+/).filter(Boolean).length} words
+                    <div className="flex justify-between text-sm text-muted-foreground">
+                      <span className="text-xs">Words: {summary.split(/\s+/).filter(Boolean).length}</span>
+                      <span className="text-xs text-orange-500">~{calculateTokens(summary)} tokens</span>
                     </div>
                   </div>
                 </Card>
