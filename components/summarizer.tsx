@@ -50,7 +50,7 @@ const calculateTokens = (text: string): number => {
 
 export function Summarizer() {
   const [text, setText] = useState("")
-  const [summaryLength, setSummaryLength] = useState(25)
+  const [summaryLength, setSummaryLength] = useState(50)
   const [summaryFormat, setSummaryFormat] = useState<SummaryFormat>('paragraph')
   const [summaryTone, setSummaryTone] = useState<SummaryTone>('professional')
   const [theme, setTheme] = useState("light")
