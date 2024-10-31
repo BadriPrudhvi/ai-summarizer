@@ -41,7 +41,7 @@ export async function POST(request: NextRequest) {
 - ${formatInstructions[format]}
 - ${toneInstructions[tone]}
 
-The summary should strictly follow the requested format and tone while preserving the essential information.`
+The summary should strictly follow the requested format and tone while preserving the essential information. Do not add any additional information or commentary.`
 
         const messages = [
             { role: "system", content: systemPrompt },
