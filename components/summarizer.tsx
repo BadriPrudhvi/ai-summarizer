@@ -256,7 +256,7 @@ export function Summarizer() {
                       placeholder="Enter or paste your text here..."
                     />
                     <div className="text-sm text-muted-foreground">
-                      {text.split(/\s+/).filter(Boolean).length} words
+                      Text length: {text.split(/\s+/).filter(Boolean).length} words
                     </div>
                   </div>
                 </Card>
