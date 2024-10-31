@@ -146,8 +146,8 @@ export function Summarizer() {
                           <Label
                             key={option.value}
                             htmlFor={`length-${option.value}`}
-                            className={`flex flex-col items-center gap-1.5 rounded-lg border p-3 cursor-pointer transition-all hover:border-primary hover:bg-accent ${
-                              summaryLength.toString() === option.value ? 'border-primary bg-accent' : ''
+                            className={`flex flex-col items-center gap-1.5 rounded-lg border p-3 cursor-pointer transition-all hover:border-primary hover:bg-primary/10 ${
+                              summaryLength.toString() === option.value ? 'border-primary/50 bg-primary/10' : ''
                             }`}
                           >
                             <RadioGroupItem
@@ -175,8 +175,8 @@ export function Summarizer() {
                           <Label
                             key={option.value}
                             htmlFor={`format-${option.value}`}
-                            className={`flex flex-col items-center gap-1.5 rounded-lg border p-3 cursor-pointer transition-all hover:border-primary hover:bg-accent ${
-                              summaryFormat === option.value ? 'border-primary bg-accent' : ''
+                            className={`flex flex-col items-center gap-1.5 rounded-lg border p-3 cursor-pointer transition-all hover:border-primary hover:bg-primary/10 ${
+                              summaryFormat === option.value ? 'border-primary/50 bg-primary/10' : ''
                             }`}
                           >
                             <RadioGroupItem
@@ -203,8 +203,8 @@ export function Summarizer() {
                           <Label
                             key={option.value}
                             htmlFor={`tone-${option.value}`}
-                            className={`flex flex-col items-center gap-1.5 rounded-lg border p-3 cursor-pointer transition-all hover:border-primary hover:bg-accent ${
-                              summaryTone === option.value ? 'border-primary bg-accent' : ''
+                            className={`flex flex-col items-center gap-1.5 rounded-lg border p-3 cursor-pointer transition-all hover:border-primary hover:bg-primary/10 ${
+                              summaryTone === option.value ? 'border-primary/50 bg-primary/10' : ''
                             }`}
                           >
                             <RadioGroupItem
