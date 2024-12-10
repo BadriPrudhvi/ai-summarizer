@@ -48,7 +48,7 @@ The summary should strictly follow the requested format and tone while preservin
             { role: "user", content: userInput },
         ]
 
-        const response = await ai.run("@cf/meta/llama-3.1-70b-instruct",
+        const response = await ai.run("@cf/meta/llama-3.3-70b-instruct-fp8-fast",
             { 
                 messages, 
                 temperature: 1,
